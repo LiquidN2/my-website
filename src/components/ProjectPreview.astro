@@ -1,0 +1,39 @@
+---
+interface Props {
+  id: number;
+  name: string;
+  description: string;
+  avatarUrl: string;
+  projectUrl: string;
+  tags: string[];
+}
+
+const { id, name, description, avatarUrl, projectUrl, tags } = Astro.props;
+---
+
+<a
+  href={projectUrl}
+  class="w-full flex rounded-lg bg-neutral-800 px-6 py-6 mb-6 border-2 border-transparent transition-colors duration-200 hover:border-[#404040]"
+>
+  <div class="w-[100px] h-[100px] mr-6">
+    <img src={avatarUrl} alt={name} class="w-full h-full object-cover" />
+  </div>
+  <div class="grow flex flex-col">
+    <h4 class="mb-2 text-[18px] font-semibold">{name}</h4>
+    <div class="flex mb-2">
+      {
+        tags.map((tag, index) => (
+          <div
+            class={
+              `rounded-md bg-green-500 px-2 py-1 text-xs font-semibold` +
+              (index !== tags.length - 1 ? ' mr-3' : '')
+            }
+          >
+            {tag}
+          </div>
+        ))
+      }
+    </div>
+    <p class="leading-loose">{description}</p>
+  </div>
+</a>

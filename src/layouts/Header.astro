@@ -1,0 +1,32 @@
+---
+import Logo from '@components/Logo.astro';
+import Navigation from '@components/Navigation.astro';
+
+const navLinks = [
+  {
+    href: '/',
+    name: 'Home',
+  },
+  {
+    href: '/portfolio',
+    name: 'Portfolio',
+  },
+  {
+    href: '/blog',
+    name: 'Blog',
+  },
+  {
+    href: '/contact',
+    name: 'Contact',
+  },
+];
+---
+
+<header class="w-full">
+  <div
+    class="max-w-2xl mx-auto my-0 px-0 py-16 flex justify-between align-middle"
+  >
+    <Logo />
+    <Navigation links={navLinks} />
+  </div>
+</header>

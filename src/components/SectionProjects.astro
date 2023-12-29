@@ -1,0 +1,60 @@
+---
+import ProjectPreview from './ProjectPreview.astro';
+
+const propjects = [
+  {
+    id: 1,
+    name: 'Natour',
+    description: 'A tour finder web applicaion built with Node.js',
+    avatarUrl: '/img/coding.jpg',
+    projectUrl: '#',
+    tags: ['NodeJS', 'Javascript', 'Pug', 'CSS'],
+  },
+  {
+    id: 2,
+    name: 'CRWN Clothing',
+    description: 'An online clothing store built with React.JS',
+    avatarUrl: '/img/clothing-store.jpg',
+    projectUrl: '#',
+    tags: ['ReactJS', 'Javascript', 'Firebase', 'SCSS'],
+  },
+  {
+    id: 3,
+    name: 'Forkify',
+    description: 'An online recipe finder built with vanilla Javascript',
+    avatarUrl: '/img/cooking.jpg',
+    projectUrl: '#',
+    tags: ['Javascript', 'HTML', 'SCSS'],
+  },
+];
+---
+
+<section class="max-w-2xl my-0 mx-auto pb-16">
+  <h3 class="mb-6 text-[20px] font-bold">
+    My <span
+      class="bg-gradient-to-br from-green-500 to-emerald-400 bg-clip-text text-transparent font-black text-[22px]"
+      >Projects</span
+    >
+  </h3>
+  <div class="flex flex-col">
+    {
+      propjects.map(
+        ({ id, name, description, avatarUrl, projectUrl, tags }) => (
+          <ProjectPreview
+            id={id}
+            name={name}
+            description={description}
+            avatarUrl={avatarUrl}
+            projectUrl={projectUrl}
+            tags={tags}
+          />
+        ),
+      )
+    }
+  </div>
+  <a
+    href="/portfolio"
+    class="text-green-500 transition-colors duration-200 hover:text-green-600"
+    >See more &rarr;</a
+  >
+</section>

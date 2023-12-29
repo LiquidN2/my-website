@@ -1,0 +1,38 @@
+---
+interface Link {
+  href: string;
+  name: string;
+}
+
+interface Props {
+  links: Link[];
+}
+
+const { links } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="flex">
+  {
+    links.map(({ href, name }, index) => (
+      <a
+        href={href}
+        class={
+          'transition-color duration-100 font-[400] text-neutral-500 pb-[2px] border-b-[1px] border-transparent hover:text-white' +
+          (index === links.length - 1 ? '' : ' mr-4') +
+          (currentPath === href ? ' active' : '')
+        }
+      >
+        {name}
+      </a>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .active {
+    color: white !important;
+    border-color: rgb(64 64 64);
+  }
+</style>
