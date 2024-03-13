@@ -1,7 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import SectionWithHeading from '@layouts/SectionWithHeading.astro';
+import ContactForm from '@components/ContactForm.astro';
 ---
 
 <Layout title="Contact 📧 Hugh Nguyen">
-  <main>Contact me</main>
+  <main>
+    <SectionWithHeading heading="Get In Touch! 🤙">
+      <ContactForm />
+    </SectionWithHeading>
+  </main>
 </Layout>
